@@ -2,9 +2,10 @@
   "compilerOptions": {
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
+    "allowJs": false, // если появится js в коде, то будет ошибка
     "skipLibCheck": true,
     "strict": true,
+    "strictPropertyInitialization": false, // не обязательно инициализировать каждое свойство класса
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
