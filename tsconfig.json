@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": false, // если появится js в коде, то будет ошибка
     "skipLibCheck": true,
     "strict": true,
@@ -16,6 +20,13 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env-custom.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "images.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }
