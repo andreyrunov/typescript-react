@@ -44,13 +44,24 @@
 
 
 @media (max-width: 765px) {
+    .wrapper {
+        grid-template-columns: minmax(320px, 1fr);
+        grid-template-areas:
+            "header"
+            "body"
+            "footer";
+    }
+
+    .sidebar {
+        display: none !important;
+    }
 
     .footer {
         grid-template-columns: 1fr;
         grid-template-areas:
-                "rights"
-                "agreement"
-                "policy";
+            "rights"
+            "agreement"
+            "policy";
         height: 100%;
     }
 
