@@ -17,12 +17,14 @@ a {
 
 * {
 	box-sizing: border-box;
+	outline-color: var(--primary);
 }
 
 /* создаем переменный с цветами и шрифтами */
 :root {
 	--black: #3B434E;
 	--gray-light: #EBEBEB;
+	--gray: #A4A4A4;
 	--gray-dark: #787D85;
 	--white: white;
 	--primary: #7653FC;

@@ -1,4 +1,5 @@
 export * from './Tags/H/H';
+export * from './Tags/Input/Input';
 export * from './Tags/Button/Button';
 export * from './Tags/P/P';
 export * from './Tags/Sort/Sort';
