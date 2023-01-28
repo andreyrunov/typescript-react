@@ -1,9 +1,9 @@
 import React, { KeyboardEvent, useState } from 'react';
 import { SearchProps } from './Search.props';
+import { Button } from '../Button/Button';
 import styles from './Search.module.css';
 import cn from 'classnames';
 import { Input } from '../Input/Input';
-import { Button } from '../Button/Button';
 import SearchIcon from './search-icon.svg';
 import { useRouter } from 'next/router';
 
