@@ -5,6 +5,7 @@
 .active {
     font-weight: bold;
     color: var(--primary);
+    white-space: nowrap;
 }
 
 .active .sortIcon {

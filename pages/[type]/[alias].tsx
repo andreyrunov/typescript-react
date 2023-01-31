@@ -7,8 +7,7 @@ import { TopLevelCategory, TopPageModel } from '../../interfaces/page.interface'
 import { ParsedUrlQuery } from 'querystring';
 import { ProductModel } from '../../interfaces/product.interface';
 import { firstLevelMenu } from '../../helpers/helpers';
-import { Advantages, TopPageComponent } from '../../page-components';
-import { Skills } from '../../page-components/Skills/Skills';
+import { TopPageComponent } from '../../page-components';
 
 
 
@@ -16,12 +15,11 @@ function TopPage({ page, products, firstCategory }: TopPageProps): JSX.Element {
 
     return (
         <>
-        <TopPageComponent
-            firstCategory={firstCategory}
-            products={products}
-            page={page}
-        />
-        
+            <TopPageComponent
+                firstCategory={firstCategory}
+                products={products}
+                page={page}
+            />
         </>
     )
 }
@@ -62,7 +60,7 @@ export const getStaticProps: GetStaticProps<TopPageProps> = async ({ params }: G
             firstCategory: firstCategoryItem.id
         });
 
-        if(menu.length == 0) {
+        if (menu.length == 0) {
             return {
                 notFound: true
             };
@@ -89,7 +87,7 @@ export const getStaticProps: GetStaticProps<TopPageProps> = async ({ params }: G
         };
     }
 
-    
+
 };
 
 interface TopPageProps extends Record<string, unknown> {

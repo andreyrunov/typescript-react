@@ -10,5 +10,7 @@ export * from './Tags/Sort/Sort';
 export * from './Tags/Rating/Rating';
 export * from './Labels/Label';
 export * from './Card/Card';
+export * from './Review/Review';
+export * from './ReviewForm/ReviewForm';
 export * from './HhData/HhData';
 export * from './Advantages/Advantages';
