@@ -6,6 +6,7 @@
 	],
 	"rules": {
 		"semi": "off",
+		"react/display-name": "off",
 		"@typescript-eslint/semi": [
 			"warn"
 		],
