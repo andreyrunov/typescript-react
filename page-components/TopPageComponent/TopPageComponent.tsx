@@ -1,17 +1,15 @@
 import React, { useEffect, useReducer } from 'react';
 import { TopPageComponentProps } from './TopPageComponent.props';
 import styles from './TopPageComponent.module.css';
-import { H, HhData, Label, P, Product, Sort } from '../../components';
+import { H, HhData, Label, Product, Sort } from '../../components';
 import { TopLevelCategory } from '../../interfaces/page.interface';
 import { Advantages } from '../../components/Advantages/Advantages';
 import { SortEnum } from '../../components/Tags/Sort/Sort.props';
 import { sortReducer } from './sort.reducer';
-import { useScrollY } from '../../hooks/useScrollY';
 
 export const TopPageComponent = ({ page, products, firstCategory }: TopPageComponentProps): JSX.Element => {
 
     const [{ products: sortedProducts, sort }, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Rating });
-    const y = useScrollY();
 
     const setSort = (sort: SortEnum) => {
         dispatchSort({type: sort});
@@ -23,7 +21,6 @@ export const TopPageComponent = ({ page, products, firstCategory }: TopPageCompo
 
     return (
         <div className={styles.wrapper}>
-            {y}
             <div className={styles.title}>
                 <H tag='h1'>{page.title}</H>
                 {products && <Label color='grey' size='m'>{products.length}</Label>}
