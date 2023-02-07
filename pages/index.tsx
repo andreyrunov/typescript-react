@@ -1,6 +1,6 @@
 import { GetStaticProps } from 'next';
 import React, { useEffect, useState } from 'react';
-import { Button, H, Input, Label, P, Rating, Textarea, TextArea } from '../components';
+import { Button, H, Input, Label, P, Rating, Textarea } from '../components';
 import { withLayout } from '../layout/Layout';
 import axios from 'axios';
 import { MenuItem } from '../interfaces/menu.interface';
