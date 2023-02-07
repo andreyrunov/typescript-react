@@ -1,8 +1,20 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import ym from 'react-yandex-metrika';
+// инициализируем код метрики, чтобы библиотека встроила метрику в приложение
+import { YMInitializer } from 'react-yandex-metrika';
+
 
 export default function App({ Component, pageProps, router }: AppProps): JSX.Element {
+  //подписываемся на изменение роута и при каждом изменении роута отправляем в метрику событие hit
+  router.events.on('routeChangeComplete', (url: string) => {
+    //проверяем, что мы не на сервере, а на клиенте
+    if (typeof window !== 'undefined') {
+      ym('hit', url);
+    }
+  });
+
   return <>
     <Head>
       <title>Тайтл проекта</title>
@@ -13,8 +25,14 @@ export default function App({ Component, pageProps, router }: AppProps): JSX.Ele
       <link rel="icon" href="/favicon.ico" />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
-          <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
+      <link rel="preconnect" href="https://mc.yandex.ru" />
+      <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
     </Head>
+    <YMInitializer 
+      accounts={[]} //указываем номера необходимых яндекс счетчиков
+      options={{ webvisor: true, defer: true }}
+      version='2'
+    />
     <Component {...pageProps} />
   </>;
 }
