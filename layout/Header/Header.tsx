@@ -3,10 +3,10 @@ import { HeaderProps } from './Header.props';
 import Logo from '../logo.svg';
 import styles from './Header.module.css';
 import cn from 'classnames';
-import { motion } from 'framer-motion'
 import { ButtonIcon } from '../../components/Tags/ButtonIcon/ButtonIcon';
 import { Sidebar } from '../Sidebar/Sidebar';
 import { useRouter } from 'next/router';
+import { motion } from 'framer-motion';
 
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
     const [isOpened, setIsOpened] = useState<boolean>(false);

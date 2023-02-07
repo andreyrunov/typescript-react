@@ -12,8 +12,8 @@ import { IReviewForm, IReviewSentResponse } from './ReviewForm.interface';
 import axios from 'axios';
 import { API } from '../../helpers/api';
 
-export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps): JSX.Element => {
-    const { register, control, handleSubmit, formState: { errors }, reset } = useForm<IReviewForm>();
+export const ReviewForm = ({ productId, isOpened, className, ...props }: ReviewFormProps): JSX.Element => {
+    const { register, control, handleSubmit, formState: { errors }, reset, clearErrors } = useForm<IReviewForm>();
     const [isSuccess, setIsSuccess] = useState<boolean>(false);
     const [error, setError] = useState<string>();
 
@@ -40,12 +40,16 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps):
                     className={styles.inputName}
                     placeholder='Имя'
                     error={errors.name}
+                    tabIndex={isOpened ? 0 : -1}
+                    aria-invalid={errors.name ? true : false}
                 />
                 <Input
                     {...register('title', { required: { value: true, message: 'Заполните заголовок отзыва' }, maxLength: { value: 25, message: 'Длинна не более 25 символов' } })}
                     className={styles.inputHeader}
                     placeholder='Заголовок отзыва'
                     error={errors.title}
+                    tabIndex={isOpened ? 0 : -1}
+                    aria-invalid={errors.title ? true : false}
                 />
                 <div className={styles.rating}>
                     <span>Оценка</span>
@@ -73,21 +77,36 @@ export const ReviewForm = ({ productId, className, ...props }: ReviewFormProps):
                     placeholder='Текст отзыва'
                     className={styles.description}
                     error={errors.description}
+                    tabIndex={isOpened ? 0 : -1}
+                    aria-label='Текст отзыва'
+                    aria-invalid={errors.description ? true : false}
                 />
                 <div className={styles.submit}>
-                    <Button appearance='primary'>Отправить</Button>
+                    <Button appearance='primary' onClick={() => clearErrors()} tabIndex={isOpened ? 0 : -1}>Отправить</Button>
                     <span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
 
                 </div>
             </div>
-            {isSuccess && <div className={cn(styles.success, styles.panel)}>
-                <div className={styles.successTitle}>Ваш отзыв отправлен</div>
-                <div className={styles.successDescription}>Спасибо! Ваш отзыв будет опубликован после проверки</div>
-                <CloseIcon className={styles.close} onClick={() => setIsSuccess(false)} />
+            {isSuccess && <div className={cn(styles.success, styles.panel)} role='alert'>
+                <div tabIndex={isSuccess ? 0 : -1} className={styles.successTitle}>Ваш отзыв отправлен</div>
+                <div tabIndex={isSuccess ? 0 : -1}  className={styles.successDescription}>Спасибо! Ваш отзыв будет опубликован после проверки</div>
+                <button 
+                    className={styles.close} 
+                    onClick={() => setIsSuccess(false)}
+                    aria-label='Закрыть оповещение'
+                >
+                    <CloseIcon />
+                </button>
             </div>}
-            {error && <div className={cn(styles.error, styles.panel)}>
+            {error && <div tabIndex={error ? 0 : -1} className={cn(styles.error, styles.panel)}>
                 Что-то пошло не так, попробуйте обновить страницу и отправить повторно отзыв
-                <CloseIcon className={styles.close} onClick={() => setError(undefined)} />
+                <button
+                    className={styles.close}
+                    onClick={() => setError(undefined)}
+                    aria-label='Закрыть оповещение'
+                >
+                    <CloseIcon />
+                </button>
             </div>}
         </form>
     );

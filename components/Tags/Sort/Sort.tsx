@@ -12,6 +12,13 @@ export const Sort = ({  sort, setSort, className, ...props }: SortProps): JSX.El
                 className={cn({
                     [styles.active]: sort == SortEnum.Rating
                 })}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                    if (e.key == 'Enter' || e.key == 'Space') {
+                        setSort(SortEnum.Rating);
+                    }
+                }}
+                aria-selected={sort == SortEnum.Rating}
             >
                 <SortIcon className={styles.sortIcon} /> По рейтингу
             </span>
@@ -20,6 +27,13 @@ export const Sort = ({  sort, setSort, className, ...props }: SortProps): JSX.El
                 className={cn({
                     [styles.active]: sort == SortEnum.Price
                 })}
+                tabIndex={0}
+                onKeyDown={(e) => {
+                    if (e.key == 'Enter' || e.key == 'Space') {
+                        setSort(SortEnum.Price);
+                    }
+                }}
+                aria-selected={sort == SortEnum.Price}
             >
                 <SortIcon className={styles.sortIcon} /> По цене
             </span>
