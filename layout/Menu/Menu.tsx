@@ -10,7 +10,7 @@ import { motion } from 'framer-motion';
 
 export const Menu = (): JSX.Element => {
     const { menu, setMenu, firstCategory } = useContext(AppContext);
-    const [announce, setAnnounce] = useState<'close' | 'opened' | undefined>();
+    const [announce, setAnnounce] = useState<'closed' | 'opened' | undefined>();
     const router = useRouter();
 
     const variants = {
