@@ -17,6 +17,7 @@ a {
 
 * {
 	box-sizing: border-box;
+
 	outline-color: var(--primary);
 }
 
@@ -29,9 +30,9 @@ a {
 	--gray-dark: #6C7077;
 	--white: white;
 	--primary: #7653FC;
-	--primary-hover: #522cec;
+	--primary-hover: #522CEC;
 	--red: #FC836D;
-	--red-light: #ffb0a2;
+	--red-light: #FFB0A2;
 	--green: #007B48;
 	--green-light: #C8F8E4;
 

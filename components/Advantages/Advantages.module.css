@@ -1,21 +1,23 @@
 .advantage {
-    margin-top: 45px;
+	margin-top: 45px;
 }
 
 .wrapper {
-    margin-bottom: 40px;
+	margin-bottom: 40px;
 }
 
 .header {
-    display: grid;
-    grid-template-columns: 40px 1fr;
-    align-items: center;
-    gap: 40px;
+	display: grid;
+	grid-template-columns: 40px 1fr;
+
+	align-items: center;
+	gap: 40px;
 }
 
 .text {
-    margin-left: 25px;
-    padding-left: 55px;
-    border-left: 1px solid var(--gray-light);
-    margin-top: 15px;
+	margin-top: 15px;
+	margin-left: 25px;
+	padding-left: 55px;
+
+	border-left: 1px solid var(--gray-light);
 }
