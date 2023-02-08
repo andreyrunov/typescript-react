@@ -1,23 +1,21 @@
 import '../styles/globals.css';
 import type { AppProps } from 'next/app';
 import Head from 'next/head';
+import Router from 'next/router';
 import ym from 'react-yandex-metrika';
 // инициализируем код метрики, чтобы библиотека встроила метрику в приложение
 import { YMInitializer } from 'react-yandex-metrika';
-import { useEffect } from 'react';
+
+//подписываемся на изменение роута и при каждом изменении роута отправляем в метрику событие hit
+Router.events.on('routeChangeComplete', (url: string) => {
+  //проверяем, что мы не на сервере, а на клиенте
+  if (typeof window !== 'undefined') {
+    ym('hit', url);
+  }
+});
 
 
 export default function App({ Component, pageProps, router }: AppProps): JSX.Element {
-  //подписываемся на изменение роута и при каждом изменении роута отправляем в метрику событие hit
-  useEffect(() => {
-    router.events.on('routeChangeComplete', (url: string) => {
-      //проверяем, что мы не на сервере, а на клиенте
-      if (typeof window !== 'undefined') {
-        ym('hit', url);
-      }
-    });
-
-  }, [router]);
 
   return <>
     <Head>
@@ -32,7 +30,7 @@ export default function App({ Component, pageProps, router }: AppProps): JSX.Ele
       <link rel="preconnect" href="https://mc.yandex.ru" />
       <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;700&display=swap" rel="stylesheet" />
     </Head>
-    <YMInitializer 
+    <YMInitializer
       accounts={[]} //указываем номера необходимых яндекс счетчиков
       options={{ webvisor: true, defer: true }}
       version='2'

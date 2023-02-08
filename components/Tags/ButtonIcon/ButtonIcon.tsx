@@ -1,7 +1,6 @@
 import styles from './ButtonIcon.module.css';
 import { ButtonIconProps, icons } from './ButtonIcon.props';
 import cn from 'classnames';
-import { motion } from 'framer-motion';
 
 export const ButtonIcon = ({ appearance, icon, className, ...props }: ButtonIconProps): JSX.Element => {
     const IconComp = icons[icon];
