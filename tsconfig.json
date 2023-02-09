@@ -7,6 +7,7 @@
       "esnext"
     ],
     "allowJs": false, // если появится js в коде, то будет ошибка
+    "noImplicitAny": false, // если в рамках билда найдем какой-нибудь any, то "не падать"
     "skipLibCheck": true,
     "strict": true,
     "strictPropertyInitialization": false, // не обязательно инициализировать каждое свойство класса
