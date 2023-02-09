@@ -109,9 +109,7 @@ export const Menu = (): JSX.Element => {
                     <Link
                         tabIndex={isOpened ? 0 : -1}
                         href={`/${route}/${p.alias}`} className={cn(styles.thirdLevel, {
-                            [styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath,
-                            [styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath && `/${route}/${p.alias}/#ref` == router.asPath
-
+                            [styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath
                         })}
                         aria-current={`/${route}/${p.alias}` == router.asPath ? 'page' : false}
                     >
