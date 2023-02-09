@@ -12,6 +12,8 @@ import Image from 'next/image';
 import { Review } from '../../Review/Review';
 import { ReviewForm } from '../../ReviewForm/ReviewForm';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
+
 
 export const Product = motion(forwardRef(({ product, className, ...props }: ProductProps, ref: ForwardedRef<HTMLDivElement>): JSX.Element => {
     const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
@@ -36,7 +38,7 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
 
             <Card className={styles.product}>
                 <div className={styles.logo}>
-                    <img
+                    <Image
                         src={process.env.NEXT_PUBLIC_DOMAIN + product.image}
                         alt={product.title}
                         width={70}
@@ -87,7 +89,9 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
                 </div>
                 <Divider className={cn(styles.hr, styles.hr2)} />
                 <div className={styles.actions}>
-                    <Button appearance='primary'>Узнать подробнее</Button>
+                    <Link href={product.link} target='_blank' rel='noreferrer'>
+                        <Button appearance='primary'>Узнать подробнее</Button>
+                    </Link>
                     <Button
                         className={styles.reviewButton}
                         appearance='ghost'

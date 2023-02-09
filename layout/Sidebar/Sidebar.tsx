@@ -5,12 +5,24 @@ import cn from 'classnames';
 import { Menu } from '../Menu/Menu';
 import Logo from '../logo.svg';
 import { Search } from '../../components/Tags/Search/Search';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export const Sidebar = ({ className, ...props }: SidebarProps): JSX.Element => {
+    const router = useRouter();
+
+    const isMainPage = () => {
+        if (router.asPath === '/') {
+            return '#';
+        }
+        return '/';
+    };
     return (
         <>
             <div className={cn(className, styles.sidebar)} {...props}>
-                <Logo className={styles.logo} />
+                <Link href={isMainPage()}>
+                    <Logo className={styles.logo} />
+                </Link>
                 <Search />
                 <Menu />
             </div>

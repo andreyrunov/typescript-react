@@ -1,0 +1,35 @@
+.item {
+	border: 1px solid var(--primary);
+	border-radius: 5px;
+	padding: 15px 25px;
+	display: inline-block;
+	flex-direction: row;
+	width: 320px;	
+	min-height: 300px;
+	margin: 10px 10px;
+}
+
+.item a:hover {
+	color: var(--primary);
+}
+
+.item__wrapper {
+	display: flex;
+	flex-direction: column;
+	
+}
+
+.links {
+	margin: 15px 0;
+}
+
+.hr {
+	width: 260px;
+	height: 3px;
+	background-color: var(--primary);
+	margin: 20px 0px;
+}
+
+.hide {
+	display: none;
+}

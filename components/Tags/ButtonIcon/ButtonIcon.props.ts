@@ -1,5 +1,5 @@
 import { ButtonHTMLAttributes, DetailedHTMLProps } from 'react';
-import up from './up.svg';
+import up from './uparrow.svg';
 import menu from './menu.svg';
 import close from './close.svg';
 
