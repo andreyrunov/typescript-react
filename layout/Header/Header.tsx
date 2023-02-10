@@ -7,6 +7,7 @@ import { ButtonIcon } from '../../components/Tags/ButtonIcon/ButtonIcon';
 import { Sidebar } from '../Sidebar/Sidebar';
 import { useRouter } from 'next/router';
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
     const [isOpened, setIsOpened] = useState<boolean>(false);
@@ -32,10 +33,19 @@ export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
         }
     };
 
+    const isMainPage = () => {
+        if (router.asPath === '/') {
+            return '#';
+        }
+        return '/';
+    };
+
     return (
         <>
             <header className={cn(className, styles.header)} {...props}>
-                <Logo />
+                <Link href={isMainPage()}>
+                    <Logo />
+                </Link>
                 <ButtonIcon appearance='white' icon='menu' onClick={() => setIsOpened(true)} />
                 <motion.div
                     className={styles.mobileMenu}

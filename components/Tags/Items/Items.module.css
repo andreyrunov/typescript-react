@@ -4,9 +4,9 @@
 	padding: 15px 25px;
 	display: inline-block;
 	flex-direction: row;
-	width: 320px;	
+	width: 313px;	
 	min-height: 300px;
-	margin: 10px 10px;
+	margin: 10px 0px;
 }
 
 .item a:hover {
@@ -27,7 +27,7 @@
 	width: 260px;
 	height: 3px;
 	background-color: var(--primary);
-	margin: 20px 0px;
+	margin: 35px 0px;
 }
 
 .hide {
