@@ -89,8 +89,8 @@ export const Product = motion(forwardRef(({ product, className, ...props }: Prod
                 </div>
                 <Divider className={cn(styles.hr, styles.hr2)} />
                 <div className={styles.actions}>
-                    <Link href={product.link} target='_blank' rel='noreferrer'>
-                        <Button appearance='primary'>Узнать подробнее</Button>
+                    <Link href={product.link}  target='_blank' rel='noreferrer'>
+                        <Button appearance='primary' className={styles.btn}>Узнать подробнее</Button>
                     </Link>
                     <Button
                         className={styles.reviewButton}

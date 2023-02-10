@@ -172,6 +172,8 @@
 	color: var(--primary);
 }
 
+
+
 @media screen and (max-width: 1350px) {
 	.product {
 		grid-template-columns: 70px 30px auto 40px auto 40px 1fr;
@@ -354,5 +356,9 @@
 	.reviewButton {
 		margin-top: 10px;
 		margin-left: 0;
+	}
+
+	.btn {
+		width: 100%;
 	}
 }
